@@ -1,5 +1,4 @@
 const { check, validationResult } = require('express-validator');
-const { User } = require('../database/models/index');
 const bcrypt = require('bcryptjs');
 const jwt = require('jwt-simple');
 

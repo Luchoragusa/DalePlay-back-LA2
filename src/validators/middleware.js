@@ -1,6 +1,7 @@
 const jwt = require('jwt-simple');
 const moment = require('moment');
-const { User } = require('../database/models/index')
+const { user } = require('../database/models/index');
+
 
 const checkToken = (req, res, next) => {
     if (!req.headers['user-token']) {
@@ -29,8 +30,8 @@ const checkToken = (req, res, next) => {
 }
 
 const policy = async (req, res, next) => { // esta funcion es para los roles de los usuarios, esto se analiza antes de hacer algo 
-    let user = await User.findOne({ where: { id: req.userId } }); // creo q falla pq no esta conectado con la db
-    if (user.idRole == 1){
+    let u = await user.findOne({ where: { id: req.userId } }); // creo q falla pq no esta conectado con la db
+    if (u.idRole == 1){
         console.log("es admin");
       req.isAdmin = true;
       next()

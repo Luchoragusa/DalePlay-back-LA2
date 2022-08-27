@@ -8,9 +8,6 @@ const app = express();
 //Requerir router
 const router = require('./routes/index.routes');
 
-// Set EJS (view engine)
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "./views"));
 
 //Settings
 app.use(cors());

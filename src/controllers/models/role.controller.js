@@ -1,6 +1,6 @@
-const { Role } = require('../database/models/index')
+// const { role } = require('../../database/models/index');
 
 
-module.exports = {
+// module.exports = {
 
-};
+// };

@@ -1,4 +1,4 @@
-const { Category } = require('../database/models/index')
+// const { category } = require('../../database/models/index');
 
-module.exports = {
-};
+// module.exports = {
+// };

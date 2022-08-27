@@ -1,7 +1,7 @@
 const Router = require('express');
 const router = Router();
 const middleware = require('../../validators/middleware');
-const { findCategoryByGame, findGameByCategory } = require('../../controllers/gamecategory.controller');
+const { findGameByCategory } = require('../../controllers/models/game.controller');
 const {getAll, getOne, createOne, deleteOne, updateOne} = require('../../controllers/generic.controller');
 const { Game } = require('../../database/models/index');
 
@@ -13,6 +13,6 @@ router.delete('/:id', deleteOne(Game)); // borra uno
 router.patch('/:id', updateOne(Game)); // actualiza uno
 
 //Especificas
-router.get('/category/:id', findCategory); // busca por categoria
+router.get('/category/:id', findGameByCategory); // busca por categoria
 
 module.exports = router;

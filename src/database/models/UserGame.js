@@ -1,24 +1,24 @@
 'use strict';
-const { Model } = require('sequelize');
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class UserGame extends Model {
+  class Usergame extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
     static associate(models) {
+      // define association here
     }
   }
-  UserGame.init({
-    idGame: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-    },
-    idUser: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-    }
+  Usergame.init({
+    idGame: DataTypes.INTEGER,
+    idUser: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'UserGame',
+    modelName: 'Usergame',
   });
-  return UserGame;
+  return Usergame;
 };
