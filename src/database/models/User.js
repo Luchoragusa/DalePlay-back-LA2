@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     idRole: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 1 // Lo crea como usuario
+      defaultValue: 2 // Lo crea como usuario
     },
     resetToken: {
       type: DataTypes.STRING(1020),

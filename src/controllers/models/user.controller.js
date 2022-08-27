@@ -1,4 +1,4 @@
-const { user } = require('../../database/models/index');
+const { User } = require('../../database/models/index');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const jwt = require('jwt-simple');
@@ -6,7 +6,7 @@ const jwt = require('jwt-simple');
 const update = async (req,res) => { // Ver como trabajar el update por parametros, pq capaz no quiero actualizar TODO
     const params = req.body;
     const id = req.params.id;
-    let u = await user.findByPk(id);
+    let u = await User.findByPk(id);
     if (id) {
         u.update({
             name: params.name || u.name,
@@ -25,7 +25,7 @@ const update = async (req,res) => { // Ver como trabajar el update por parametro
 
 const register =  async (req, res) => {
     req.body.password = bcrypt.hashSync(req.body.password, 10); // tomo la pw que me llega, la encripto y la guardo en el campo password
-    const u = await user.create(req.body);
+    const u = await User.create(req.body);
     if (u) {
         return res.status(200).json({'status':200, u, 'msg':'Creado correctamente'})
     } else {
@@ -35,7 +35,7 @@ const register =  async (req, res) => {
 
 const login = async (req, res) => {
     //Comprobar email en DB
-    const u = await user.findOne({ where: { email: req.body.email } });
+    const u = await User.findOne({ where: { email: req.body.email } });
     if(u){
         // El mail esra en la db
         if(bcrypt.compareSync(req.body.password, u.password)){

@@ -1,6 +1,6 @@
 const jwt = require('jwt-simple');
 const moment = require('moment');
-const { user } = require('../database/models/index');
+const { User } = require('../database/models/index');
 
 
 const checkToken = (req, res, next) => {
@@ -24,19 +24,17 @@ const checkToken = (req, res, next) => {
     if(payload.expiredAt <= moment().unix()) {
         return res.status(401).json({msg:"Sesion expirada"})
     }
-
     req.userId = payload.userId; // Le seteo la id a la "sesion" entontes se que este es el usuariuo y puedo validar si es admin o no
     next()
 }
 
 const policy = async (req, res, next) => { // esta funcion es para los roles de los usuarios, esto se analiza antes de hacer algo 
-    let u = await user.findOne({ where: { id: req.userId } }); // creo q falla pq no esta conectado con la db
-    if (u.idRole == 1){
-        console.log("es admin");
+    const user = await User.findOne({ where: { id: req.userId } }); // creo q falla pq no esta conectado con la db
+    if (user.idRole == 1){
       req.isAdmin = true;
       next()
     } else {
-      res.status(401).json({msg:"No autorizado"})
+      res.status(401).json({msg:"No autorizado, tenes que ser admin"})
     }
   };
 
