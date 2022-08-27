@@ -9,22 +9,28 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(50),
+        allowNull: false
       },
       idCateogry: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       idDeveloper: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       image: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(200),
+        allowNull: false
       },
       valoration: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(5),
+        allowNull: false
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(500),
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

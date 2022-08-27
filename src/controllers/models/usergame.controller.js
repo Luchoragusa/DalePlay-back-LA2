@@ -20,7 +20,6 @@ const findByIdUser = async (req,res) => {
 
 
 
-
 module.exports = {
     findByIdUser
 };
