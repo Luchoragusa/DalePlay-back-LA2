@@ -1,32 +1,42 @@
-const { check, validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-const jwt = require('jwt-simple');
+const { check } = require('express-validator');
+const { validateResult } = require('../helpers/validateHelper');
 
-const validateEmail = [
+const validateLogin = [
+    
     check('email')
         .exists()
-        .withMessage('El email es obligatorio')
-        .length({ min: 5 })
-        .withMessage('El email debe tener al menos 5 caracteres')
+        .isLength({min:5})
+        .withMessage('El correo debe contener mas de 5 caracteres')
         .isEmail()
-        .withMessage('El email no es valido'),
-    (req, res, next) => {
-        validationResult(req, res, next);
-    }
-]
-
-const validatePassword = [
+        .withMessage('No contiene un formato de email valido'),
     check('password')
         .exists()
-        .withMessage('El password es obligatorio')
-        .isLength({ min: 6 })
-        .withMessage('El password debe tener al menos 6 caracteres'),
+        .isLength({min:6})
+        .withMessage('La contraseña debe contener mas de 6 caracteres'),
     (req, res, next) => {
-        validationResult(req, res, next);
+        validateResult(req, res, next)
     }
 ]
 
-export { 
-    validateEmail,
-    validatePassword
-}
+const validateRegister = [
+    
+    check('email')
+        .exists()
+        .isLength({min:5})
+        .withMessage('El correo debe contener mas de 5 caracteres')
+        .isEmail()
+        .withMessage('No contiene un formato de email valido'),
+    check('password')
+        .exists()
+        .isLength({min:6})
+        .withMessage('La contraseña debe contener mas de 6 caracteres'),
+    check('confirmPassword')
+        .exists()
+        .isLength({min:6})
+        .withMessage('La contraseña debe contener mas de 6 caracteres'),
+    (req, res, next) => {
+        validateResult(req, res, next)
+    }
+]
+
+module.exports = { validateLogin, validateRegister }
