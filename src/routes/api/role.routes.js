@@ -5,10 +5,10 @@ const {getAll, getOne, createOne, deleteOne, updateOne} = require('../../control
 const { role } = require('../../database/models/index');
 
 // Genericas
-router.get('/', middleware.checkToken, getAll(role)); // muestra todos
-router.get('/:id', middleware.checkToken, getOne(role)); // muestra uno
-router.post('/', middleware.checkToken, middleware.policy, createOne(role)); // crea uno
-router.delete('/:id', middleware.checkToken, middleware.policy, deleteOne(role)); // borra uno
-router.patch('/:id', middleware.checkToken, middleware.policy, updateOne(role)); // actualiza uno
+router.get('/', getAll(role)); // muestra todos
+router.get('/:id', getOne(role)); // muestra uno
+router.post('/', middleware.policy, createOne(role)); // crea uno
+router.delete('/:id', middleware.policy, deleteOne(role)); // borra uno
+router.patch('/:id', middleware.policy, updateOne(role)); // actualiza uno
 
 module.exports = router;

@@ -6,12 +6,12 @@ const {getAll, createOne, deleteOne} = require('../../controllers/generic.contro
 const { findByIdUser } = require('../../controllers/usergame.controller');
 
 // Genericas
-router.get('/', middleware.checkToken, getAll(userGame)); // muestra todos
-router.post('/', middleware.checkToken, middleware.policy, createOne(userGame)); // crea uno
-router.delete('/:id', middleware.checkToken, middleware.policy, deleteOne(userGame)); // borra uno
+router.get('/', getAll(userGame)); // muestra todos
+router.post('/', middleware.policy, createOne(userGame)); // crea uno
+router.delete('/:id', middleware.policy, deleteOne(userGame)); // borra uno
 
 // especificas
-router.get('/user/:id', middleware.checkToken, findByIdUser); // muestra uno
-router.get('/game/:id', middleware.checkToken); // muestra uno
+router.get('/user/:id', findByIdUser); // muestra uno
+router.get('/game/:id'); // muestra uno
 
 module.exports = router;

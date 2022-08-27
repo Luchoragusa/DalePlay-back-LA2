@@ -34,24 +34,40 @@ const register =  async (req, res) => {
 }
 
 const login = async (req, res) => {
+    //Comprobar email en DB
     const u = await user.findOne({ where: { email: req.body.email } });
     if(u){
-        const validPassword = bcrypt.compareSync(req.body.password, u.password);
-        if(validPassword){
-            return res.status(200).json({'status':200, msg: createToken(u) })
+        // El mail esra en la db
+        if(bcrypt.compareSync(req.body.password, u.password)){
+
+            // Creo el token
+            let token = createToken(u);
+            // Guardo el token en la cookie
+            res.cookie('jwt', token, { httpOnly: true, secure: true });
+            return res.status(200).json({'status':200, msg: {token, u} })
         } else {
             return res.status(404).json({'msg':'Email y/o contraseña incorrectos'})
         }
     }else{
+        // Email no se encontro en la DB
         return res.status(404).json({'msg':'Email y/o contraseña incorrectos'})
     }
 }
 
+const logOut = async (req, res, next) => {
+    //Eliminar cookie jwt
+    res.clearCookie('jwt')
+    //Redirigir a la vista de login
+    return res.redirect('/login')
+};
+
 const createToken = (u) => {
     const payload = {
         userId: u.id,
+        email: u.email,
+        role: u.idRole,
         createdAt: moment().unix(),
-        expiredAt: moment().add(5, 'minutes').unix()
+        expiredAt: moment().add(30, 'minutes').unix()
     }
     return jwt.encode(payload, 'secretKey') // poner una frease secreta en el .env
 }

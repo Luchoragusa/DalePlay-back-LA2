@@ -6,9 +6,9 @@ const {getAll, getOne, createOne, deleteOne, updateOne} = require('../../control
 
 // Genericas
 router.get('/', getAll(category)); // muestra todos
-router.get('/:id', middleware.checkToken, getOne(category)); // muestra uno
-router.post('/', middleware.checkToken, middleware.policy, createOne(category)); // crea uno
-router.delete('/:id', middleware.checkToken, middleware.policy, deleteOne(category)); // borra uno
-router.patch('/:id', middleware.checkToken, middleware.policy, updateOne(category)); // actualiza uno
+router.get('/:id', getOne(category)); // muestra uno
+router.post('/', middleware.policy, createOne(category)); // crea uno
+router.delete('/:id', middleware.policy, deleteOne(category)); // borra uno
+router.patch('/:id', middleware.policy, updateOne(category)); // actualiza uno
 
 module.exports = router;
