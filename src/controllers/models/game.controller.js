@@ -59,12 +59,12 @@ const findGamesByUser = async (req,res) => {
 
             return res.status(200).json({games, 'msg':'Encontrados correctamente'})
         } else {
-            // Si no hay juegos de esa categoria, devuelvo un 404
-            return res.status(404).json({'msg':'No hay juegos para ese developer'})
+            // Si no hay juegos de ese usuario, devuelvo un 404
+            return res.status(404).json({'msg':'No hay juegos para ese usuario'})
         }
     }else{
-        // El developer no existe en la DB
-        return res.status(404).json({'msg':'El developer no existe en la DB'})
+        // El usuario no existe en la DB
+        return res.status(404).json({'msg':'El usuario no existe en la DB'})
     }
 };
 
