@@ -15,7 +15,7 @@ router.delete('/:id', middleware.checkToken, middleware.policy, deleteOne(User))
 //  Especificas
 router.post('/register', validateRegister, EmailIsUnique, register); // Registrar un usuario en la DB
 router.post('/login', validateLogin, login); // crea uno
-router.patch('/:id', middleware.checkToken, middleware.policy, EmailIsUnique,update); // actualiza uno
+router.patch('/:id', middleware.checkToken, middleware.policy, EmailIsUnique, update); // actualiza uno
 
 
 module.exports = router;
