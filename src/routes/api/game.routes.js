@@ -1,7 +1,7 @@
 const Router = require('express');
 const router = Router();
 const middleware = require('../../validators/middleware');
-const { findGamesByCategory, findGamesByDeveloper } = require('../../controllers/models/game.controller');
+const { findGamesByCategory, findGamesByDeveloper, findGamesByUser } = require('../../controllers/models/game.controller');
 const {getAll, getOne, createOne, deleteOne, updateOne} = require('../../controllers/generic.controller');
 const { Game } = require('../../database/models/index');
 
@@ -15,5 +15,6 @@ router.patch('/:id', updateOne(Game)); // actualiza uno
 //Especificas
 router.get('/category/:id', findGamesByCategory); // Te devuelve todos los juegos de esa categoria
 router.get('/developer/:id', findGamesByDeveloper); // Te devuelve todos los juegos de esa categoria
+router.get('/user/:id', findGamesByUser); // Te devuelve todos los juegos de esa categoria
 
 module.exports = router;

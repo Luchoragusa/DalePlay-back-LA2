@@ -8,7 +8,7 @@ const { validateLogin, validateRegister } = require('../../validators/auth');
 const { EmailIsUnique } = require('../../validators/EmailIsUnique');
 
 // Genericas
-router.get('/', middleware.checkToken, getAll(User)); // muestra todos
+router.get('/', /*middleware.checkToken,*/ getAll(User)); // muestra todos
 router.get('/:id', middleware.checkToken, getOne(User)); // muestra uno
 router.delete('/:id', middleware.checkToken, middleware.policy, deleteOne(User)); // borra uno
 

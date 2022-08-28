@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     idGame: {
       type: DataTypes.INTEGER,
       allowNull: false
-  },
-  idUser: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-  }
+    },
+    idUser: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Usergame',
