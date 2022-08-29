@@ -39,7 +39,8 @@ const findGamesByDeveloper = async (req,res) => {
 };
 
 const findGamesByUser = async (req,res) => {
-    const id = req.params.id
+    const id = req.userId
+    console.log(id)
     if(await User.findByPk(id)) {
         // El usuario existe en la DB
         let usergames = await Usergame.findAll({ where: { idUser: id } });
@@ -50,10 +51,17 @@ const findGamesByUser = async (req,res) => {
             let games = [];
             await usergames.forEach(element => {
 
-                Game.findByPk(element.idGame).then(game => {
-                    console.log("Id de los juegos en el foreach" + game);
-                    games.push(game);
-                });
+                // De esta forma me devuelve una promesa
+
+                let game = Game.findByPk(element.idGame);
+                console.log(game);
+
+                // De estar forma me devuelve los datos por separado
+
+                // Game.findByPk(element.idGame).then(game => {
+                //     console.log("Los datos del juego son: " + game.name);
+                //     games.push(game);
+                // });
             });
             console.log(games);
 

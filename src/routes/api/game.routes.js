@@ -15,6 +15,6 @@ router.patch('/:id', updateOne(Game)); // actualiza uno
 //Especificas
 router.get('/category/:id', findGamesByCategory); // Te devuelve todos los juegos de esa categoria
 router.get('/developer/:id', findGamesByDeveloper); // Te devuelve todos los juegos de esa categoria
-router.get('/user/:id', findGamesByUser); // Te devuelve todos los juegos de esa categoria
+router.get('/user/:id', middleware.checkToken, findGamesByUser); // Te devuelve todos los juegos que tiene el usuario
 
 module.exports = router;

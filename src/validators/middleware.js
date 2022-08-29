@@ -24,7 +24,7 @@ const checkToken = (req, res, next) => {
     if(payload.expiredAt <= moment().unix()) {
         return res.status(401).json({msg:"Sesion expirada"})
     }
-    req.userId = payload.userId; // Le seteo la id a la "sesion" entontes se que este es el usuariuo y puedo validar si es admin o no
+    req.userId = payload.userId; // Le seteo la id a la "sesion" en "req.userId" entontes se que este es el usuariuo y puedo validar si es admin o no
     next()
 }
 
