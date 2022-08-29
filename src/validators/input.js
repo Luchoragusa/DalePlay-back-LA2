@@ -38,7 +38,7 @@ const validateRole = [
     }
 ]
 
-const validateGame = [  
+const validateGame = [ 
     check('name')
         .exists()
         .isLength({min:3, max:20})
@@ -75,6 +75,7 @@ const validateGame = [
         if(!developer){
             return res.status(400).json({msg: "El desarrollador no existe"})
         }
+        next()
     },
 
     (req, res, next) => {

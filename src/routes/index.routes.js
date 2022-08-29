@@ -1,25 +1,25 @@
 const Router = require('express');
 const router = Router();
-const middleware = require('../validators/middleware');
+const { checkToken } = require('../validators/middleware');
 
 // Con el middleware se puede hacer que se ejecute una funcion antes de que se ejecute otra, en este caos reviso que este logeado
 
 const apiGameRouter = require('./api/game.routes');
-router.use('/game', middleware.checkToken, apiGameRouter);
+router.use('/game', checkToken, apiGameRouter);
 
 const apiRoleRouter = require('./api/role.routes');
-router.use('/role', /*middleware.checkToken,*/ apiRoleRouter);
+router.use('/role', checkToken, apiRoleRouter);
 
 const apiUserRouter = require('./api/user.routes');
 router.use('/user', apiUserRouter);
 
 const apiCategoryRouter = require('./api/category.routes');
-router.use('/category', /*middleware.checkToken,*/ apiCategoryRouter);
+router.use('/category', checkToken, apiCategoryRouter);
 
 const apiUserGameRouter = require('./api/usergame.routes');
-router.use('/usergame', /*middleware.checkToken,*/ apiUserGameRouter);
+router.use('/usergame', checkToken, apiUserGameRouter);
 
 const apiDeveloperRouter = require('./api/developer.routes');
-router.use('/developer', /*middleware.checkToken,*/ apiDeveloperRouter);
+router.use('/developer', checkToken, apiDeveloperRouter);
 
 module.exports = router;
