@@ -40,7 +40,6 @@ const findGamesByDeveloper = async (req,res) => {
 
 const findGamesByUser = async (req,res) => {
     const id = req.userId
-    console.log(id)
     if(await User.findByPk(id)) {
         // El usuario existe en la DB
         let usergames = await Usergame.findAll({ where: { idUser: id } });

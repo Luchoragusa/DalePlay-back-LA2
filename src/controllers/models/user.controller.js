@@ -24,6 +24,7 @@ const update = async (req,res) => { // Ver como trabajar el update por parametro
 // Video de login y registro con JWT
 
 const register =  async (req, res) => {
+    console.log(req.body);
     req.body.password = bcrypt.hashSync(req.body.password, 10); // tomo la pw que me llega, la encripto y la guardo en el campo password
     const u = await User.create(req.body);
     if (u) {

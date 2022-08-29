@@ -57,7 +57,7 @@ const validateGame = [
         .withMessage('El link no es valido'),
     check('valoration')
         .exists()
-        .isLength({min:1, max:5})
+        .isFloat()
         .withMessage('No es una valoracion valida'),
     check('description')
         .exists()

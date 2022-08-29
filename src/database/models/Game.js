@@ -32,14 +32,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     valoration: {
-      type: DataTypes.STRING(5),
-      allowNull: false,
-      validate: {
-        len: {
-          args: [1,5],
-          msg: "No es una valoracion valida"
-        }
-      }
+      type: DataTypes.FLOAT,
+      allowNull: false
     },
     idCategory: {
       type: DataTypes.INTEGER,

@@ -8,7 +8,7 @@ const apiGameRouter = require('./api/game.routes');
 router.use('/game', checkToken, apiGameRouter);
 
 const apiRoleRouter = require('./api/role.routes');
-router.use('/role', checkToken, apiRoleRouter);
+router.use('/role', apiRoleRouter);
 
 const apiUserRouter = require('./api/user.routes');
 router.use('/user', apiUserRouter);

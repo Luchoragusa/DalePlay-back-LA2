@@ -1,6 +1,6 @@
 const jwt = require('jwt-simple');
 const moment = require('moment');
-const { User } = require('../database/models/index');
+const { User, Role } = require('../database/models/index');
 const { validateResult } = require('../helpers/validateHelper');
 
 const checkToken = [ 
@@ -26,28 +26,36 @@ const checkToken = [
             return res.status(401).json({msg:"Sesion expirada"})
         }
 
-        console.log('Ya paso el token');
-
+        console.log('Token valida2');
+        next();
         req.userId = payload.userId; // Le seteo la id a la "sesion" en "req.userId" entontes se que este es el usuariuo y puedo validar si es admin o no
         
-        (req, res, next) => {
-            validateResult(req, res, next)
-        }
+        console.log(req.userId);
+
+        // (req, res, next) => {
+        //     console.log('Hace el next');
+        //     validateResult(req, res, next)
+        // }
     }
 ];
 
 const policy = [ 
     async (req, res, next) => { // esta funcion es para los roles de los usuarios, esto se analiza antes de hacer algo 
-        const user = await User.findOne({ where: { id: req.userId } }); // creo q falla pq no esta conectado con la db
-        if (user.idRole == 1){
+        // Traigo el rol de Admin
+        const role = await Role.findOne({ where: { name: 'Admin' } });
+        // Traigo el usuario que esta haciendo la peticion
+        const user = await User.findOne({ where: { id: req.userId } });
+        // Si el rol del usuario es Admin, continua
+        if (user.idRole == role.id){
             req.isAdmin = true;
             console.log('Es admin');
         } else {
             res.status(401).json({msg:"No autorizado, tenes que ser admin"})
         }
-        (req, res, next) => {
-            validateResult(req, res, next)
-        }
+        // (req, res, next) => {
+        //     validateResult(req, res, next)
+        // }
+        next();
     }
 ];
 
