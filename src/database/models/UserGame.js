@@ -6,12 +6,17 @@ const { sequelize } = require('.');
 module.exports = (sequelize, DataTypes) => {
   class Usergame extends Model {
     static associate(models) {
-      Usergame.belongsTo(models.Game, {foreignKey: 'idGame'});
-      Usergame.belongsTo(models.User, {foreignKey: 'idUser'});
     }
   }
   Usergame.init({
-
+    idUser: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    idGame: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   }, {
     sequelize,
     modelName: 'Usergame',

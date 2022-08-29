@@ -41,6 +41,14 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    idCategory: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    idDeveloper: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     description: {
       type: DataTypes.STRING(500),
       allowNull: false,
