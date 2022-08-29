@@ -5,6 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Developer extends Model {
     static associate(models) {
+      Developer.hasMany(models.Game, {foreignKey: 'idDeveloper'});
     }
   }
   Developer.init({

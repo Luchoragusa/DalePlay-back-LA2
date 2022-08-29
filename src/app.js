@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 http.listen(PORT, () => {
     console.log(`Running on a port: ${PORT}`);
-    sequelize.sync({ force: false }).then(() => { // Si pongo el force en true se crean las tablas de nuevo
+    sequelize.sync({ force: true }).then(() => { // Si pongo el force en true se crean las tablas de nuevo
         console.log('Conexion a DB exitosa');
     }).catch(error => {
         console.log('Se ha producido un error', error);

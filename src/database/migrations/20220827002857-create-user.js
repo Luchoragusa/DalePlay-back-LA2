@@ -24,10 +24,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      idRole: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       resetToken: {
         type: Sequelize.STRING,
         allowNull: true

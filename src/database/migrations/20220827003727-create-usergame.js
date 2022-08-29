@@ -8,14 +8,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true
       },
-      idGame: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      idUser: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

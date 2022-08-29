@@ -5,6 +5,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Game extends Model {
     static associate(models) {
+      Game.hasMany(models.Usergame, {foreignKey: 'idGame'});
+      Game.belongsTo(models.Developer, {foreignKey: 'idDeveloper'});
+      Game.belongsTo(models.Category, {foreignKey: 'idCategory'});
     }
   }
   Game.init({
@@ -16,20 +19,6 @@ module.exports = (sequelize, DataTypes) => {
           args: [3,25],
           msg: "El nombre debe contener entre 3 a 50 letras"
         }
-      }
-    },
-    idCategory: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        //isNumber: { msg:"La id de la categoria solo puede ser un numero." },
-      }
-    },
-    idDeveloper: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        //isNumber: { msg:"La id de la categoria solo puede ser un numero." },
       }
     },
     image: {

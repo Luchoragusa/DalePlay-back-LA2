@@ -5,6 +5,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const config = require('../../config/config');
+const usergame = require('./usergame');
 const db = {};
 
 //Crear conexion

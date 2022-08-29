@@ -12,14 +12,6 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: false
       },
-      idCategory: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      idDeveloper: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       image: {
         type: Sequelize.STRING(200),
         allowNull: false
