@@ -19,8 +19,8 @@ const developers = [
 ];
 
 const users = [
-    { name: 'Admin', surname: 'Admin', email: 'admin@gamil.com', password: bcrypt.hashSync('admin', 10), confirmPassword: 'admin', idRole: 1 },
-    { name: 'User', surname: 'User', email: 'user@gmail.com', password: bcrypt.hashSync('user', 10), confirmPassword: 'user', idRole: 2 },
+    { name: 'Admin', surname: 'Admin', email: 'admin@gmail.com', password: bcrypt.hashSync('admin123', 10), confirmPassword: 'admin', idRole: 1 },
+    { name: 'User', surname: 'User', email: 'user@gmail.com', password: bcrypt.hashSync('user123', 10), confirmPassword: 'user', idRole: 2 },
 ];
 
 const games = [
