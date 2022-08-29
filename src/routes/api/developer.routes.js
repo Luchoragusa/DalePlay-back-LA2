@@ -7,9 +7,9 @@ const { Developer } = require('../../database/models/index');
 // Genericas
 router.get('/', getAll(Developer)); // muestra todos
 router.get('/:id', getOne(Developer)); // muestra uno
-router.post('/', createOne(Developer)); // crea uno
-router.delete('/:id', deleteOne(Developer)); // borra uno
-router.patch('/:id', updateOne(Developer)); // actualiza uno
+router.post('/', /*middleware.policy,*/ createOne(Developer)); // crea uno
+router.delete('/:id', /*middleware.policy,*/ deleteOne(Developer)); // borra uno
+router.patch('/:id', /*middleware.policy,*/ updateOne(Developer)); // actualiza uno
 
 
 module.exports = router;
