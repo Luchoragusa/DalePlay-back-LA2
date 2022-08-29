@@ -14,7 +14,7 @@ const update = async (req,res) => { // Ver como trabajar el update por parametro
             email: params.email || u.email,
             idRole: params.idRole || u.idRole
         }).then(u => {
-          res.status(201).json({status:201,u, 'msg':'Editado correctamente'})
+          res.status(201).json({u, 'msg':'Editado correctamente'})
         })
     } else {
         return res.status(404).json({msg:"Usuario no encontrado"})
@@ -27,7 +27,7 @@ const register =  async (req, res) => {
     req.body.password = bcrypt.hashSync(req.body.password, 10); // tomo la pw que me llega, la encripto y la guardo en el campo password
     const u = await User.create(req.body);
     if (u) {
-        return res.status(200).json({'status':200, u, 'msg':'Creado correctamente'})
+        return res.status(200).json({u, 'msg':'Creado correctamente'})
     } else {
         return res.status(404).json({'msg':'No se recibieron los datos'})
     }
@@ -44,7 +44,7 @@ const login = async (req, res) => {
             let token = createToken(u);
             // Guardo el token en la cookie
             res.cookie('jwt', token, { httpOnly: true, secure: true });
-            return res.status(200).json({'status':200, msg: {token, u} })
+            return res.status(200).json({msg: {token, u} })
         } else {
             return res.status(404).json({'msg':'Email y/o contraseña incorrectos'})
         }

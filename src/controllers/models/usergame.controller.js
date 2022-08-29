@@ -10,7 +10,7 @@ const findByIdUser = async (req,res) => {
             games = game.findOne({ where: { id: g.idGame } })
         });
         if(games){
-            return res.status(200).json({'status':200, games, 'msg':'Encontrados correctamente'})
+            return res.status(200).json({games, 'msg':'Encontrados correctamente'})
         }
     } else {
         return res.status(404).json({'msg':'No hay datos'})
