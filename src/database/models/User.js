@@ -6,8 +6,11 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
 
-      //User.hasMany(models.Usergame, {foreignKey: 'idUser'});
-      User.belongsToMany(models.Game, {through: 'Usergame', foreignKey: 'idUser'});
+      // Como creo deberia ser
+      // User.belongsToMany(models.Game, {through: 'Usergame', foreignKey: 'idUser'});
+
+      // Como me funciona
+      User.hasMany(models.Usergame, {foreignKey: 'idUser'});
 
       User.belongsTo(models.Role, {foreignKey: 'idRole'});
     }
