@@ -8,26 +8,26 @@ const PORT = process.env.PORT || 3000;
 
 http.listen(PORT, () => {
     console.log(`Running on a port: ${PORT}`);
-    sequelize.sync({ force: false }).then(() => { // Si pongo el force en true se crean las tablas de nuevo
+    sequelize.sync({ force: true }).then(() => { // Si pongo el force en true se crean las tablas de nuevo
         console.log('Conexion a DB exitosa'); })
 
 // Tengo los seeders aca
 
-    // .then (() => {
-    //     roles.forEach(async (role) => Role.create(role))
-    // })
-    // .then (() => {
-    //     categories.forEach(async (category) => Category.create(category))
-    // })
-    // .then (() => {
-    //     developers.forEach(async (developer) => Developer.create(developer))
-    // })
-    // .then (() => {
-    //     users.forEach(async (user) => User.create(user))
-    // })
-    // .then (() => {
-    //     games.forEach(async (game) => Game.create(game))
-    // })
+    .then (() => {
+        roles.forEach(async (role) => Role.create(role))
+    })
+    .then (() => {
+        categories.forEach(async (category) => Category.create(category))
+    })
+    .then (() => {
+        developers.forEach(async (developer) => Developer.create(developer))
+    })
+    .then (() => {
+        users.forEach(async (user) => User.create(user))
+    })
+    .then (() => {
+        games.forEach(async (game) => Game.create(game))
+    })
 
     .catch(error => {
         console.log('Se ha producido un error', error);

@@ -6,8 +6,10 @@ const { sequelize } = require('.');
 module.exports = (sequelize, DataTypes) => {
   class Usergame extends Model {
     static associate(models) {
-      models.User.belongsToMany(models.Game, {through: Usergame, foreignKey: 'idUser'});
-      models.Game.belongsToMany(models.User, {through: Usergame, foreignKey: 'idGame'});
+
+      Usergame.belongsToMany(models.Game, {through: 'Game', foreignKey: 'idUser'});
+      Usergame.belongsToMany(models.User, {through: 'User', foreignKey: 'idGame'});
+
     }
   }
   Usergame.init({
