@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // Como me funciona
       // models.User.belongsToMany(models.Game, {through: Usergame, foreignKey: 'idUser'});
       // models.Game.belongsToMany(models.User, {through: Usergame, foreignKey: 'idGame'});
+      
     }
   }
   Usergame.init({
