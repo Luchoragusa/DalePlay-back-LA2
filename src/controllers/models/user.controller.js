@@ -44,7 +44,7 @@ const login = async (req, res) => {
             let token = createToken(u);
             // Guardo el token en la cookie
             res.cookie('jwt', token, { httpOnly: true, secure: true });
-            return res.status(200).json({msg: {token} })
+            return res.status(200).json({token})
         } else {
             return res.status(404).json({'msg':'Email y/o contraseña incorrectos'})
         }

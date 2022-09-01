@@ -10,6 +10,6 @@ router.get('/', getAll ); // muestra todos
 router.post('/', policy,  createOne(Usergame)); // crea uno
 router.delete('/:id', policy, deleteOne(Usergame)); // Ver como hacer el borrado
 
-// No les hago validacion porque los datos que vienen del fron son seleccionados y no ingreados manualemnte por el usuario
+// No les hago validacion porque los datos que vienen del front son seleccionados y no ingreados manualemnte por el usuario
 
 module.exports = router;
