@@ -2,10 +2,11 @@ const Router = require('express');
 const router = Router();
 const { policy } = require('../../validators/middleware');
 const { Usergame } = require('../../database/models/index');
-const {getAll, createOne, deleteOne} = require('../../controllers/generic.controller');
+const { createOne, deleteOne} = require('../../controllers/generic.controller');
+const { getAll } = require('../../controllers/models/usergame.controller');
 
 // Genericas
-router.get('/', getAll(Usergame)); // muestra todos
+router.get('/', getAll ); // muestra todos
 router.post('/', policy,  createOne(Usergame)); // crea uno
 // router.delete('/:id', policy, deleteOne(Usergame)); // Ver como hacer el borrado
 
