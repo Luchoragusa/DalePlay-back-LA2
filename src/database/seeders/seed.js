@@ -66,10 +66,20 @@ const games = [
     },
 ];
 
+const usergames  = [
+    { idUser: 1, idGame: 1 },
+    { idUser: 1, idGame: 2 },
+    { idUser: 1, idGame: 3 },
+
+    { idUser: 2, idGame: 4 },
+    { idUser: 2, idGame: 5 },
+];
+
 module.exports = {
     roles,
     categories,
     developers,
     users,
-    games
+    games,
+    usergames
 };

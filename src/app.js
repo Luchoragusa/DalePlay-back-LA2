@@ -1,8 +1,8 @@
 const app = require('./server');
 const http = require('http').createServer(app);
 const {sequelize} = require('./database/models/index');
-const { roles, categories, developers, users, games } = require('./database/seeders/seed');
-const {Role, Category, Developer, User, Game} = require('./database/models/index');
+const { roles, categories, developers, users, games, usergames } = require('./database/seeders/seed');
+const {Role, Category, Developer, User, Game, Usergame} = require('./database/models/index');
 
 const PORT = process.env.PORT || 3000;
 
@@ -27,6 +27,12 @@ http.listen(PORT, () => {
     // })
     // .then (() => {
     //     games.forEach(async (game) => Game.create(game))
+    // })
+
+    // Primero correr lo de arriba y dsp esto
+
+    // .then (() => {
+    //     usergames.forEach(async (usergame) => Usergame.create(usergame))
     // })
 
     .catch(error => {
