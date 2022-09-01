@@ -54,12 +54,12 @@ const login = async (req, res) => {
     }
 }
 
-const logOut = async (req, res, next) => {
-    //Eliminar cookie jwt
-    res.clearCookie('jwt')
-    //Redirigir a la vista de login
-    return res.redirect('/login')
-};
+// const logOut = async (req, res, next) => {
+//     //Eliminar cookie jwt
+//     res.clearCookie('jwt')
+//     //Redirigir a la vista de login
+//     return res.redirect('/login')
+// };
 
 const createToken = (u) => {
     const payload = {
@@ -76,5 +76,5 @@ module.exports = {
     register,
     update,
     login,
-    logOut
+//    logOut
 };
