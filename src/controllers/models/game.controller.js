@@ -48,12 +48,12 @@ const findGamesByUser = async (req,res) => {
         if (usergames.length > 0) { 
             // Tengo un array de objetos con los juegos comprados por el usuario
             const games = [];
-            await usergames.forEach(element => {
-
-                // De esta forma me devuelve una promesa
-                games.push(Game.findByPk(element.idGame));
+            const promises = usergames.map(async (usergame) => {
+                const game = await Game.findByPk(usergame.idGame);
+                games.push(game);
             });
-            console.log(games);
+            // Espero a que se resuelvan todas las promesas
+            await Promise.all(promises);
 
             return res.status(200).json({games, 'msg':'Encontrados correctamente'})
         } else {
@@ -65,7 +65,6 @@ const findGamesByUser = async (req,res) => {
         return res.status(404).json({'msg':'El usuario no existe en la DB'})
     }
 };
-
 
 module.exports = {
     findGamesByCategory,
