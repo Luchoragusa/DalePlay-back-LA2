@@ -17,7 +17,7 @@ const checkToken = [
         let payload = {};
 
         try{
-            payload = jwt.decode(userToken, "secretKey");
+            payload = jwt.decode(userToken, process.env.HASH_KEY);
         } catch (err) {
             return res.status(401).json({msg:"No autorizado 2 " + err})
         }

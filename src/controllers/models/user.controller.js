@@ -69,7 +69,7 @@ const createToken = (u) => {
         createdAt: moment().unix(),
         expiredAt: moment().add(30, 'minutes').unix()
     }
-    return jwt.encode(payload, 'secretKey') // poner una frease secreta en el .env
+    return jwt.encode(payload, process.env.HASH_KEY) // poner una frease secreta en el .env
 }
 
 module.exports = {
