@@ -17,6 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Usergame.init({
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     idUser: {
       type: DataTypes.INTEGER,
       references: {
