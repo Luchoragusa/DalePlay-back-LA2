@@ -27,14 +27,16 @@ module.exports = (sequelize, DataTypes) => {
       references: {
         model: 'User',
         key: 'id'
-      }
+      },
+      allowNull: false
     },
     idGame: {
       type: DataTypes.INTEGER,
       references: {
         model: 'Game',
         key: 'id'
-      }
+      },
+      allowNull: false
     },
   }, {
     sequelize,
