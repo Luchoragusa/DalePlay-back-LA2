@@ -26,11 +26,9 @@ const checkToken = [
             return res.status(401).json({msg:"Sesion expirada"})
         }
 
-        console.log('Token valida2');
+        console.log('Token validado correctamente!');
         next();
         req.userId = payload.userId; // Le seteo la id a la "sesion" en "req.userId" entontes se que este es el usuariuo y puedo validar si es admin o no
-        
-        console.log(req.userId);
 
         // (req, res, next) => {
         //     console.log('Hace el next');
