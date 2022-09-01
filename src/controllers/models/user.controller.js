@@ -75,5 +75,6 @@ const createToken = (u) => {
 module.exports = {
     register,
     update,
-    login
+    login,
+    logOut
 };
