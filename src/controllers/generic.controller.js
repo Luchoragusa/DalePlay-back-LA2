@@ -45,8 +45,9 @@ exports.createOne = Model =>
 exports.updateOne = Model =>
     async (req, res, next) => {
         const params = req.body;
+        const id = req.params.id;
         let elemnt = await Model.findByPk(id);
-        if (id) {
+        if (elemnt) {
             elemnt.update(params).then(elemnt => {
               res.status(201).json({elemnt, 'msg':'Editado correctamente'})
             })
