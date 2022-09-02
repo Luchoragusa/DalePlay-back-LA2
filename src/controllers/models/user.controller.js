@@ -2,17 +2,32 @@ const { User } = require('../../database/models/index');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const jwt = require('jwt-simple');
+const { EmailIsUniqueB } = require('../../validators/EmailIsUnique');
+
 
 const update = async (req,res) => { // Ver como trabajar el update por parametros, pq capaz no quiero actualizar TODO
     const params = req.body;
     const id = req.params.id;
     let u = await User.findByPk(id);
-    if (id) {
+    if (u) {
+        let email = u.email;
+        // Valido para cambiar el correo
+        if (u.email != params.email){ // El mail del body es distinto al del usuario
+            console.log("Voy a validar el email")
+            const emailUnique = await EmailIsUniqueB(req, res); // Valido si ese mail lo tiene otro usuario
+
+            if (emailUnique){
+                email = params.email; // Si el correo es distinto al de la db y no esta en uso, guardo el nuevo
+            }else{
+                return res.status(404).json({msg:"El mail ya fue registrado"})
+            }
+        }
+        // Hago el update
         u.update({
             name: params.name || u.name,
             surname: params.surname || u.surname,
-            email: params.email || u.email,
-            idRole: params.idRole || u.idRole
+            idRole: params.idRole || u.idRole,
+            email: email
         }).then(u => {
           res.status(201).json({u, 'msg':'Editado correctamente'})
         })
@@ -24,11 +39,10 @@ const update = async (req,res) => { // Ver como trabajar el update por parametro
 // Video de login y registro con JWT
 
 const register =  async (req, res) => {
-    console.log(req.body);
     req.body.password = bcrypt.hashSync(req.body.password, 10); // tomo la pw que me llega, la encripto y la guardo en el campo password
     const u = await User.create(req.body);
     if (u) {
-        return res.status(200).json({u, 'msg':'Creado correctamente'})
+        return res.status(200).json({'msg':'Creado correctamente', u})
     } else {
         return res.status(404).json({'msg':'No se recibieron los datos'})
     }
