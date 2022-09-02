@@ -22,4 +22,7 @@ router.use('/usergame', checkToken, apiUserGameRouter);
 const apiDeveloperRouter = require('./api/developer.routes');
 router.use('/developer', checkToken, apiDeveloperRouter);
 
+const apiContactRouter = require('./api/contact.routes');
+router.use('/contact', checkToken, apiContactRouter);
+
 module.exports = router;
