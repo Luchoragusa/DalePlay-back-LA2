@@ -1,7 +1,7 @@
 exports.getAll = Model =>
     async (req, res, next) => {
-        const elemts = await Model.findAll()
-        if (elemts) {
+        let elemts = await Model.findAll()
+        if (elemts.length > 0) {
             return res.status(200).json({elemts, 'msg':'Encontrados correctamente'})
         } else {
             return res.status(404).json({'msg':'No hay datos'})

@@ -27,8 +27,8 @@ const checkToken = [
         }
 
         console.log('Token validado correctamente!');
-        next();
         req.userId = payload.userId; // Le seteo la id a la "sesion" en "req.userId" entontes se que este es el usuariuo y puedo validar si es admin o no
+        next();
 
         // (req, res, next) => {
         //     console.log('Hace el next');
