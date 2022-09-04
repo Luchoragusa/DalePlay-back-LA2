@@ -13,12 +13,12 @@ const categories = [
 ];
 
 const developers = [
-    { name: 'Codemasters', image: 'https://frroutneduar-my.sharepoint.com/:i:/g/personal/lragusa_frro_utn_edu_ar/ERKe2_y24yBBjfwC74LO4-ABYSqmscGPGmzkR9Ng4u50BQ?e=YjPBH1'} ,
-    { name: 'EA', image: 'https://frroutneduar-my.sharepoint.com/:i:/g/personal/lragusa_frro_utn_edu_ar/EXrTe0vcL1xJhiicade8528BCqMnsveiN0xaJvSCn6JW4Q?e=xI8HcC'} ,
-    { name: 'Rockstar', image: 'https://frroutneduar-my.sharepoint.com/:i:/g/personal/lragusa_frro_utn_edu_ar/ETWiSiTvzPxKrZ5QEJfj5eoBkqZWP3iFIQd10vEyDU8NUg?e=8KaJs6'} ,
-    { name: 'Riot Games', image: 'https://frroutneduar-my.sharepoint.com/:i:/g/personal/lragusa_frro_utn_edu_ar/EVZPFcFrMiNGhwIVNL4YSacBKDIeEqecODTfyCrb-AiCTg?e=ytPGOi'} ,
-    { name: 'Playground Games', image: 'https://frroutneduar-my.sharepoint.com/:i:/g/personal/lragusa_frro_utn_edu_ar/ESKWR6N3TmxCmWJPOPVs0LABq0nOFKP4XJ_ip-Kx0wLJcg?e=KwhckJ'} ,
-    { name: 'Mediatronic Games', image: 'https://frroutneduar-my.sharepoint.com/:i:/g/personal/lragusa_frro_utn_edu_ar/EUz9buXwqEhCqF2mbkUCwpABdDcH0KgmPBQii5ktRA-9NA?e=PotS1y'}
+    { name: 'Codemasters', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123208858075226/1.png'} ,
+    { name: 'EA', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123209386573834/3.png'} ,
+    { name: 'Rockstar', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123210506444872/7.png'} ,
+    { name: 'Riot Games', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123210225434655/6.png'} ,
+    { name: 'Playground Games', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123209634033744/4.png'} ,
+    { name: 'Mediatronic Games', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123209910853713/5.png'}
 ];
 
 const users = [
