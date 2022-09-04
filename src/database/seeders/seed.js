@@ -130,8 +130,7 @@ const games = [
         image: 'https://frroutneduar-my.sharepoint.com/:i:/g/personal/lragusa_frro_utn_edu_ar/EWrjTm1oI0RDnu0EAVQzXJkBesBWQjjkYN9UIIy-y3QIpA?e=eb1a8A',
         valoration: 5,
         description: 'Red Dead Redemption 2 es un videojuego de acción-aventura western desarrollado y publicado por Rockstar Games. Es la secuela de Red Dead Redemption, y se lanzó el 26 de octubre de 2018 para PlayStation 4 y Xbox One, y el 5 de noviembre de 2019 para Microsoft Windows y Stadia.',
-    },
-    {
+    }
 ];
 
 const usergames  = [
