@@ -32,6 +32,34 @@ const getOne = async (req, res) => {
     }
 }
 
+const getAll = async (req, res) => {
+    try {
+        const users = await User.findAll({
+            attributes: { exclude: ['password'] }
+        });
+        if (!users) {
+            return res.status(404).json({ msg: 'Usuarios no encontrados' });
+        } else {
+            const usersArray = [];
+            const promises = users.map(async (user) => {
+                const seed = user.seed;
+                const url = await externalApi(seed);
+
+                // Devuelvo todos los datos y la url de la imagen
+                let u = user.dataValues;
+                u.image = url;
+                usersArray.push(u);
+            });
+            // Espero a que se resuelvan todas las promesas
+            await Promise.all(promises);
+            return await res.status(200).json(usersArray);
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ msg: 'Error en el servidor' });
+    }
+}
+
 const update = async (req,res) => { // Ver como trabajar el update por parametros, pq capaz no quiero actualizar TODO
     try{
         const params = req.body;
@@ -130,6 +158,7 @@ const createToken = (u) => {
 
 module.exports = {
     getOne,
+    getAll,
     register,
     update,
     login,
