@@ -50,10 +50,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     seed: {
       type: DataTypes.STRING(20),
-      allowNull: false,
+      allowNull: true,
       unique: true,
       validate: {
-        notNull: {msg:"Seed requerido"},
         len: {
           args: [5,20],
           msg: "La seed debe contener entre 5 a 20 caracteres"
@@ -68,14 +67,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 2 // Lo crea como usuario
-    },
-    resetToken: {
-      type: DataTypes.STRING(1020),
-      allowNull: true
-    },
-    refreshToken: {
-      type: DataTypes.STRING(1020),
-      allowNull: true
     }
   }, {
     sequelize,

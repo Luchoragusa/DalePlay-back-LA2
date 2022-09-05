@@ -24,12 +24,8 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      resetToken: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      refreshToken: {
-        type: Sequelize.STRING,
+      seed: {
+        type: Sequelize.STRING(20),
         allowNull: true
       },
       createdAt: {
