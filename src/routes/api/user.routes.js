@@ -8,11 +8,11 @@ const { validateLogin, validateRegister } = require('../../validators/auth');
 const { EmailIsUnique } = require('../../validators/EmailIsUnique');
 
 // Genericas
-router.get('/', checkToken, getAll); // muestra todos
-router.get('/:id', checkToken, getOne); // muestra uno
 router.delete('/:id', checkToken, policy, deleteOne(User)); // borra uno
 
 //  Especificas
+router.get('/', checkToken, getAll); // muestra todos
+router.get('/:id', checkToken, getOne); // muestra uno
 router.post('/register', validateRegister, EmailIsUnique, register); // Registrar un usuario en la DB
 router.post('/login', validateLogin, login); // crea uno
 router.patch('/:id', checkToken, policy, update); // actualiza uno

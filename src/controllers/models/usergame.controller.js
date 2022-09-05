@@ -1,21 +1,5 @@
 const { Usergame, Game, User } = require('../../database/models/index');
 
-// const getAll = async (req, res) => {
-//     const userGames = await Usergame.findAll({
-//         include: [
-//             {
-//                 model: 'Game',
-//                 attributes: ['idGame', 'name', 'image']
-//             },
-//             {
-//                 model: 'User',
-//                 attributes: ['idUser', 'name', 'surname']      
-//             }
-//         ]
-//     });
-//     res.status(200).json({ userGames });
-// };
-
 const create = async (req, res) => {
     try{
         // Recibo las id de user y game

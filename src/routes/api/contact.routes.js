@@ -10,6 +10,7 @@ router.get('/', getAll(Contact)); // muestra todos
 router.get('/:id', getOne(Contact)); // muestra uno
 router.delete('/:id', policy, deleteOne(Contact)); // borra uno
 
+// Especificas
 router.post('/', create); // crea uno
 
 module.exports = router;
