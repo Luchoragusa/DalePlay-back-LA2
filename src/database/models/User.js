@@ -48,6 +48,18 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    seed: {
+      type: DataTypes.STRING(20),
+      allowNull: false,
+      unique: true,
+      validate: {
+        notNull: {msg:"Seed requerido"},
+        len: {
+          args: [5,20],
+          msg: "La seed debe contener entre 5 a 20 caracteres"
+        }
+      }
+    },
     password: {
       type: DataTypes.STRING(150),
       allowNull: false

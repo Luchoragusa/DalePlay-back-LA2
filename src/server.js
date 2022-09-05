@@ -24,5 +24,6 @@ app.use((req, res, next) => {
     descripcion: 'Pagina no encontrada'
   })
 })
-  
+
+
 module.exports = app;

@@ -11,6 +11,7 @@ http.listen(PORT, () => {
     sequelize.sync({ force: false }).then(() => { // Si pongo el force en true se crean las tablas de nuevo
         console.log('Conexion a DB exitosa'); })
 
+
 // Tengo los seeders aca
 
     // .then (() => {
