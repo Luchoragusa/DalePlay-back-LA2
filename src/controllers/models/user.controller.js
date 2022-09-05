@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const jwt = require('jwt-simple');
 const { EmailIsUniqueB } = require('../../validators/EmailIsUnique');
-const externalApi = require('../../helpers/extApi');
+const externalApi = require('../../helpers/externalApi');
 
 
 const getOne = async (req, res) => {
