@@ -53,7 +53,6 @@ const findGamesByCategory = async (req,res) => {
             // La categoria existe en la DB
             let games = await Game.findAll({ where: { idCategory: id } });
             // Si obtengo un array vacio, es porque no hay juegos de esa categoria
-            // Puse el .length porque sino me daba error
             if (games.length > 0) { 
                 return res.status(200).json({games, 'msg':'Encontrados correctamente'})
             } else {
@@ -77,7 +76,6 @@ const findGamesByDeveloper = async (req,res) => {
             // El developer existe en la DB
             let games = await Game.findAll({ where: { idDeveloper: id } });
             // Si obtengo un array vacio, es porque no hay juegos de ese developer
-            // Puse el .length porque sino me daba error
             if (games.length > 0) { 
                 return res.status(200).json({games, 'msg':'Encontrados correctamente'})
             } else {
@@ -101,7 +99,6 @@ const findGamesByUser = async (req,res) => {
             // El usuario existe en la DB
             let usergames = await Usergame.findAll({ where: { idUser: id } });
             // Si obtengo un array vacio, es porque no hay juegos comprados por ese usuario
-            // Puse el .length porque sino me daba error
             if (usergames.length > 0) { 
                 // Tengo un array de objetos con los juegos comprados por el usuario
                 const games = [];
