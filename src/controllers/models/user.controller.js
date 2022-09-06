@@ -52,9 +52,9 @@ const getAll = async (req, res) => {
                 user.dataValues.image = url;
 
                 // Le agrego el nombre del rol al modelo de usuario
-                user.dataValues.roleName = await getRoleName(u.idRole);
+                user.dataValues.roleName = await getRoleName(user.idRole);
 
-                usersArray.push(u);
+                usersArray.push(user);
             });
             // Espero a que se resuelvan todas las promesas
             await Promise.all(promises);
