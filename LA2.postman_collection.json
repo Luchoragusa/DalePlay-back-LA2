@@ -1,0 +1,1038 @@
+{
+	"info": {
+		"_postman_id": "0e97500b-ae3d-4477-9679-6b43bc3ca907",
+		"name": "LA2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23041568"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Luciano",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Ragusa",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "luchito.rc4@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "luchito123",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "luchito123",
+									"type": "text"
+								},
+								{
+									"key": "idRole",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "seed",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Luciano",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Ragusa",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "luchito.rc4@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "luchito123",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "confirmPassword",
+									"value": "luchito123",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "idRole",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/user/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login-Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login-User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "user@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log Out",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Create Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "User",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/role",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/role/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"role",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/role/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"role",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/category",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Tests",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/category/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/category",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/category/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Developer",
+			"item": [
+				{
+					"name": "Create developer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Tma",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "https://cdn.discordapp.com/attachments/852889034723426324/1013239178034683905/pg-logo.png",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/developer",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"developer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/developer",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"developer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/developer/6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"developer",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "Create game",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test1",
+									"type": "text"
+								},
+								{
+									"key": "idCategory",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "idDeveloper",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "https://cdn.discordapp.com/attachments/852889034723426324/1013243734059651132/Car3Ftula_GTA_V.webp",
+									"type": "text"
+								},
+								{
+									"key": "valoration",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Grand Theft Auto V es un videojuego de acción-aventura de mundo abierto desarrollado por el estudio Rockstar North y distribuido por Rockstar Games.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/game",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"game"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test11",
+									"type": "text"
+								},
+								{
+									"key": "idCategory",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "idDeveloper",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "https://cdn.discordapp.com/attachments/852889034723426324/1013243734059651132/Car3Ftula_GTA_V.webp",
+									"type": "text"
+								},
+								{
+									"key": "valoration",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Grand Theft Auto V es un videojuego de acción-aventura de mundo abierto desarrollado por el estudio Rockstar North y distribuido por Rockstar Games.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/game/6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"game",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/game",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"game"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/game/6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"game",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findGamesByCategory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/game/category/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"game",
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findGamesByDeveloper",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/game/developer/6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"game",
+								"developer",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findGamesByUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/game/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"game",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserGame",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idGame",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "idUser",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/usergame/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"usergame",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Usergame",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/usergame/5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"usergame",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Send Contact",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "message",
+									"value": "Hola!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/contact/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contact",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/contact/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contact",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "user-token",
+								"value": "{{user-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/contact/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contact",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const postRequest = {",
+					"  url: 'localhost:3000/user/login',",
+					"  method: 'POST',",
+					"  timeout: 0,",
+					"  header: {",
+					"    \"Content-Type\": \"application/x-www-form-urlencoded\"",
+					"  },",
+					"  body: {",
+					"    mode: 'urlencoded',",
+					"    urlencoded: [",
+					"        {key:\"email\", value: \"admin@gmail.com\"},",
+					"        {key:\"password\", value: \"admin123\"},",
+					"    ]}",
+					"};",
+					"",
+					"pm.sendRequest(postRequest, function (err, res) {",
+					"    var responseJson = res.json();",
+					"    console.log(responseJson);",
+					"    pm.environment.set('user-token', responseJson['token']);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

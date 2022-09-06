@@ -9,7 +9,7 @@ const { UserGameExist } = require('../../validators/UsergameExist');
 // Genericas
 router.delete('/:id', policy, deleteOne(Usergame)); // Ver como hacer el borrado
 
-//  Especificas
+// Especificas
 router.post('/:id', policy, UserGameExist, create); // crea uno
 
 module.exports = router;
