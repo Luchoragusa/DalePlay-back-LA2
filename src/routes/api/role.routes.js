@@ -10,8 +10,8 @@ const { validateRole } = require('../../validators/input');
 // Genericas
 router.get('/', checkToken, getAll(Role)); // muestra todos
 router.get('/:id', checkToken, getOne(Role)); // muestra uno
-router.post('/', validateRole, createOne(Role)); // crea un role
-router.delete('/:id', policy,  checkToken, deleteOne(Role)); // borra uno
+router.post('/', checkToken, validateRole, policy, createOne(Role)); // crea un role
+router.delete('/:id', policy, checkToken, deleteOne(Role)); // borra uno
 router.patch('/:id', policy, checkToken, validateRole, updateOne(Role)); // actualiza uno
 
 module.exports = router;

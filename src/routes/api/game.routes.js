@@ -7,12 +7,12 @@ const { Game } = require('../../database/models/index');
 const { validateGame } = require('../../validators/input');
 
 // Genericas
-router.get('/', getAll); // muestra todos
 router.post('/', policy, validateGame, createOne(Game)); // crea uno
 router.delete('/:id', policy, deleteOne(Game)); // borra uno
 router.patch('/:id', policy, validateGame, updateOne(Game)); // actualiza uno
 
 // Especificas
+router.get('/', getAll); // muestra todos
 router.get('/:id', getOne); // muestra uno
 router.get('/category/:id', findGamesByCategory); // Te devuelve todos los juegos de esa categoria
 router.get('/developer/:id', findGamesByDeveloper); // Te devuelve todos los juegos de esa categoria

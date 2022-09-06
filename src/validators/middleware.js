@@ -46,14 +46,10 @@ const policy = [
         // Si el rol del usuario es Admin, continua
         if (user.idRole == role.id){
             req.isAdmin = true;
-            console.log('Es admin');
+            next();
         } else {
-            res.status(401).json({msg:"No autorizado, tenes que ser admin"})
+            return res.status(401).json({msg:"No autorizado, tenes que ser admin"})
         }
-        // (req, res, next) => {
-        //     validateResult(req, res, next)
-        // }
-        next();
     }
 ];
 
