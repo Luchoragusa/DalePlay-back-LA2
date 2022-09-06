@@ -3,7 +3,7 @@ const { Usergame } = require('../database/models/index');
 const UserGameExist = async (req, res, next) => {
    // Recibo las id de user y game
 
-   const idGame = req.params.id;
+   const idGame = req.body.idGame;
    const idUser = req.userId;
 
    // Busco si ya existe esa compra

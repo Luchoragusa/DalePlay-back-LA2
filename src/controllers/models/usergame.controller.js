@@ -3,7 +3,7 @@ const { Usergame, Game, User } = require('../../database/models/index');
 const create = async (req, res) => {
     try{
         // Recibo las id de user y game
-        const idGame = req.params.id;
+        const idGame = req.body.idGame;;
         const idUser = req.userId;
 
         const ug = await Usergame.create({idGame, idUser});

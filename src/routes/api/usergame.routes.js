@@ -10,6 +10,6 @@ const { UserGameExist } = require('../../validators/UsergameExist');
 router.delete('/:id', policy, deleteOne(Usergame)); // Ver como hacer el borrado
 
 // Especificas
-router.post('/:id', policy, UserGameExist, create); // crea uno
+router.post('/', policy, UserGameExist, create); // crea uno
 
 module.exports = router;
