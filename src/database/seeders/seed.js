@@ -1,29 +1,29 @@
 const bcrypt = require('bcryptjs'); 
 
 const roles = [
-    { name: 'Admin'} ,
-    { name: 'User'} ,
+    { id: 1, name: 'Admin'} ,
+    { id: 2, name: 'User'} ,
 ];
 
 const categories = [
-    { name: 'Action'} , // 1
-    { name: 'Sport'} , // 2
-    { name: 'Racing'}, // 3
-    { name: 'MOBA'}, // 4
+    { id: 1, name: 'Action'} , // 1
+    { id: 2, name: 'Sport'} , // 2
+    { id: 3, name: 'Racing'}, // 3
+    { id: 4, name: 'MOBA'}, // 4
 ];
 
 const developers = [
-    { name: 'Codemasters', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123208858075226/1.png'} ,
-    { name: 'EA', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123209386573834/3.png'} ,
-    { name: 'Rockstar', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123210506444872/7.png'} ,
-    { name: 'Riot Games', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123210225434655/6.png'} ,
-    { name: 'Playground Games', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123209634033744/4.png'} ,
-    { name: 'Mediatronic Games', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123209910853713/5.png'}
+    { id: 1, name: 'Codemasters', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123208858075226/1.png'} ,
+    { id: 2, name: 'EA', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123209386573834/3.png'} ,
+    { id: 3, name: 'Rockstar', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123210506444872/7.png'} ,
+    { id: 4, name: 'Riot Games', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123210225434655/6.png'} ,
+    { id: 5, name: 'Playground Games', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123209634033744/4.png'} ,
+    { id: 6, name: 'Mediatronic Games', image: 'https://cdn.discordapp.com/attachments/852889034723426324/1016123209910853713/5.png'}
 ];
 
 const users = [
-    { name: 'Admin', surname: 'Admin', email: 'admin@gmail.com', password: bcrypt.hashSync('admin123', 10), confirmPassword: 'admin', idRole: 1, seed: 'd3d94490f89e9120' },
-    { name: 'User', surname: 'User', email: 'user@gmail.com', password: bcrypt.hashSync('user123', 10), confirmPassword: 'user', idRole: 2, seed: '6aaa902f15faaa2c' },
+    { id: 1, name: 'Admin', surname: 'Admin', email: 'admin@gmail.com', password: bcrypt.hashSync('admin123', 10), confirmPassword: 'admin', idRole: 1, seed: 'd3d94490f89e9120' },
+    { id: 2, name: 'User', surname: 'User', email: 'user@gmail.com', password: bcrypt.hashSync('user123', 10), confirmPassword: 'user', idRole: 2, seed: '6aaa902f15faaa2c' },
 ];
 
 const games = [
