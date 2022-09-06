@@ -1,4 +1,4 @@
-const { User } = require('../../database/models/index');
+const { User, Role } = require('../../database/models/index');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const jwt = require('jwt-simple');
@@ -23,7 +23,11 @@ const getOne = async (req, res) => {
             // Devuelvo todos los datos y la url de la imagen
             let u = user.dataValues;
             u.image = url;
-            
+
+            // Le agrego el nombre del rol al modelo de usuario
+            u.roleName = await getRoleName(u.idRole);
+
+
             return res.status(200).json(u);
         }
     } catch (error) {
@@ -32,7 +36,7 @@ const getOne = async (req, res) => {
     }
 }
 
-const getAll = async (req, res) => {
+const getAll = async (req, res) => { // mejorar este codigo
     try {
         const users = await User.findAll({
             attributes: { exclude: ['password'] }
@@ -48,6 +52,10 @@ const getAll = async (req, res) => {
                 // Devuelvo todos los datos y la url de la imagen
                 let u = user.dataValues;
                 u.image = url;
+
+                // Le agrego el nombre del rol al modelo de usuario
+                u.roleName = await getRoleName(u.idRole);
+
                 usersArray.push(u);
             });
             // Espero a que se resuelvan todas las promesas
@@ -155,6 +163,17 @@ const createToken = (u) => {
     }
     return jwt.encode(payload, process.env.HASH_KEY) // poner una frease secreta en el .env
 }
+
+const getRoleName = async (idrole) => {
+    try {
+        const role = await Role.findByPk(idrole);
+        return role.name;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
 
 module.exports = {
     getOne,

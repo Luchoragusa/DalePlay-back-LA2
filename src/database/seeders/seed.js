@@ -6,10 +6,10 @@ const roles = [
 ];
 
 const categories = [
-    { name: 'Action'} ,
-    { name: 'Sport'} ,
-    { name: 'Racing'},
-    { name: 'MOBA'},
+    { name: 'Action'} , // 1
+    { name: 'Sport'} , // 2
+    { name: 'Racing'}, // 3
+    { name: 'MOBA'}, // 4
 ];
 
 const developers = [
