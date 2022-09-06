@@ -27,7 +27,6 @@ const getOne = async (req, res) => {
             // Le agrego el nombre del rol al modelo de usuario
             u.roleName = await getRoleName(u.idRole);
 
-
             return res.status(200).json(u);
         }
     } catch (error) {
@@ -36,7 +35,7 @@ const getOne = async (req, res) => {
     }
 }
 
-const getAll = async (req, res) => { // mejorar este codigo
+const getAll = async (req, res) => {
     try {
         const users = await User.findAll({
             attributes: { exclude: ['password'] }
@@ -67,7 +66,7 @@ const getAll = async (req, res) => { // mejorar este codigo
     }
 }
 
-const update = async (req,res) => { // Ver como trabajar el update por parametros, pq capaz no quiero actualizar TODO
+const update = async (req,res) => {
     try{
         const params = req.body;
         const id = req.params.id;
@@ -102,8 +101,6 @@ const update = async (req,res) => { // Ver como trabajar el update por parametro
         res.status(500).json({ msg: 'Error en el servidor' });
     }
 };
-
-// Video de login y registro con JWT
 
 const register =  async (req, res) => {
     try{
