@@ -28,6 +28,7 @@ const users = [
 
 const games = [
     {
+        id: 1,
         name: 'Fifa 23', 
         idCategory: 2,
         idDeveloper: 2,
@@ -36,6 +37,7 @@ const games = [
         description: 'FIFA 23 es un videojuego de fútbol desarrollado por EA Vancouver y EA Salt Lake y publicado por EA Sports. Es la vigésimo tercera entrega de la serie FIFA y se lanzó el 1 de octubre de 2022 para PlayStation 5, PlayStation 4, Xbox Series X, Xbox Series S, Xbox One, Nintendo Switch, Google Stadia y Microsoft Windows.',
     },
     {
+        id: 2,
         name: 'Fifa 22',
         idCategory: 2,
         idDeveloper: 2,
@@ -44,6 +46,7 @@ const games = [
         description: 'FIFA 22 es un videojuego de fútbol desarrollado por EA Vancouver y EA Salt Lake y publicado por EA Sports. Es la vigésimo segunda entrega de la serie FIFA y se lanzó el 1 de octubre de 2021 para PlayStation 5, PlayStation 4, Xbox Series X, Xbox Series S, Xbox One, Nintendo Switch, Google Stadia y Microsoft Windows.',
     },
     {
+        id: 3,
         name: 'NBA 2K23', 
         idCategory: 2,
         idDeveloper: 2,
@@ -52,6 +55,7 @@ const games = [
         description: 'NBA 2K23 es un videojuego de baloncesto desarrollado por Visual Concepts y publicado por 2K Sports. Es la vigésimo tercera entrega de la serie NBA 2K y se lanzó el 10 de septiembre de 2022 para PlayStation 5, PlayStation 4, Xbox Series X, Xbox Series S, Xbox One, Nintendo Switch, Google Stadia y Microsoft Windows.',
     },
     {
+        id: 4,
         name: 'NBA 2K22',
         idCategory: 2,
         idDeveloper: 2,
@@ -60,6 +64,7 @@ const games = [
         description: 'NBA 2K22 es un videojuego de baloncesto desarrollado por Visual Concepts y publicado por 2K Sports. Es la vigésimo segunda entrega de la serie NBA 2K y se lanzó el 10 de septiembre de 2021 para PlayStation 5, PlayStation 4, Xbox Series X, Xbox Series S, Xbox One, Nintendo Switch, Google Stadia y Microsoft Windows.',
     },
     {
+        id: 5,
         name: 'GTA V', 
         idCategory: 1,
         idDeveloper: 3,
@@ -68,6 +73,7 @@ const games = [
         description: 'Grand Theft Auto V es un videojuego de acción-aventura de mundo abierto desarrollado por Rockstar North y publicado por Rockstar Games. Es el quinto título principal de la serie Grand Theft Auto y se lanzó inicialmente en 2013 para PlayStation 3 y Xbox 360, seguido por una versión para PlayStation 4 y Xbox One en 2014 y una versión para Microsoft Windows en 2015.',
     },
     {
+        id: 6,
         name: 'Valorant', 
         idCategory: 1,
         idDeveloper: 4,
@@ -76,6 +82,7 @@ const games = [
         description: 'Valorant es un videojuego de disparos en primera persona multijugador en línea desarrollado y publicado por Riot Games. El juego se lanzó el 2 de junio de 2020 para Microsoft Windows. El juego es gratuito para jugar, pero los jugadores pueden comprar paquetes de contenido adicional.',
     },
     {
+        id: 7,
         name: 'F1 22', 
         idCategory: 3,
         idDeveloper: 2,
@@ -84,6 +91,7 @@ const games = [
         description: 'F1 2022 es un videojuego de carreras de automóviles desarrollado por Codemasters Birmingham y publicado por Codemasters. Es la vigésimo segunda entrega de la serie F1 y se lanzó el 16 de julio de 2022 para PlayStation 5, PlayStation 4, Xbox Series X, Xbox Series S, Xbox One, Nintendo Switch, Google Stadia y Microsoft Windows.',
     },
     {
+        id: 8,
         name: 'Cyberpunk 2077',
         idCategory: 1,
         idDeveloper: 3,
@@ -92,6 +100,7 @@ const games = [
         description: 'Cyberpunk 2077 es un videojuego de rol de acción y mundo abierto desarrollado y publicado por CD Projekt. Es el cuarto juego de la serie Cyberpunk, y se lanzó el 10 de diciembre de 2020 para PlayStation 4, Xbox One y Microsoft Windows, con versiones para PlayStation 5 y Xbox Series X/S lanzadas el 10 de diciembre de 2021.',
     },
     {
+        id: 9,
         name: 'Fall Guys',
         idCategory: 1,
         idDeveloper: 6,
@@ -100,6 +109,7 @@ const games = [
         description: 'Fall Guys: Ultimate Knockout es un videojuego de acción y deportes desarrollado por Mediatonic y publicado por Devolver Digital. Es un juego multijugador masivo en línea en el que hasta 60 jugadores compiten en una serie de minijuegos para ser el último jugador en pie.',
     },
     {
+        id: 10,
         name: 'Forza Horizon 4',
         idCategory: 3,
         idDeveloper: 5,
@@ -108,6 +118,7 @@ const games = [
         description: 'Forza Horizon 4 es un videojuego de carreras de automóviles desarrollado por Playground Games y publicado por Microsoft Studios. Es el cuarto título de la serie Forza Horizon y el decimotercero de la serie Forza, lanzado el 2 de octubre de 2018 para Xbox One y Microsoft Windows después de un lanzamiento exclusivo para Xbox One y Windows 10 el 28 de septiembre de 2016.',
     },
     {
+        id: 11,
         name: 'Forza Horizon 5',
         idCategory: 3,
         idDeveloper: 5,
@@ -116,6 +127,7 @@ const games = [
         description: 'Forza Horizon 5 es un videojuego de carreras de automóviles desarrollado por Playground Games y publicado por Microsoft Studios. Es el quinto título de la serie Forza Horizon y el decimocuarto de la serie Forza, lanzado el 9 de noviembre de 2021 para Xbox Series X/S y Microsoft Windows después de un lanzamiento exclusivo para Xbox One y Windows 10 el 28 de septiembre de 2016.',
     },
     {
+        id: 12,
         name: 'League of Legends',
         idCategory: 4,
         idDeveloper: 4,
@@ -124,6 +136,7 @@ const games = [
         description: 'League of Legends es un videojuego de estrategia en línea y multijugador masivo desarrollado y publicado por Riot Games para Microsoft Windows y macOS. Es un juego gratuito para jugar, pero los jugadores pueden comprar paquetes de contenido adicional.',
     },
     {
+        id: 13,
         name: 'Read Dead Redemption 2',
         idCategory: 1,
         idDeveloper: 3,
