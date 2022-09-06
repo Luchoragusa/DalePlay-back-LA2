@@ -50,11 +50,10 @@ const getAll = async (req, res) => { // mejorar este codigo
                 const url = await externalApi(seed);
 
                 // Devuelvo todos los datos y la url de la imagen
-                let u = user.dataValues;
-                u.image = url;
+                user.dataValues.image = url;
 
                 // Le agrego el nombre del rol al modelo de usuario
-                u.roleName = await getRoleName(u.idRole);
+                user.dataValues.roleName = await getRoleName(u.idRole);
 
                 usersArray.push(u);
             });

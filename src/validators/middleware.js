@@ -6,12 +6,12 @@ const { validateResult } = require('../helpers/validateHelper');
 const checkToken = [ 
     async (req, res, next) => {
         if (!req.headers['user-token']) {
-            return res.status(401).json({msg:"Es necesario incluir el token en la cabecera"})
+            return res.status(403).json({msg:"Es necesario incluir el token en la cabecera"})
         }
         const userToken = req.headers['user-token'];
 
         if (userToken === "null") {
-            return res.status(401).json({msg:"No autorizado 1"})
+            return res.status(403).json({msg:"No autorizado 1"})
         }
 
         let payload = {};
@@ -19,11 +19,11 @@ const checkToken = [
         try{
             payload = jwt.decode(userToken, process.env.HASH_KEY);
         } catch (err) {
-            return res.status(401).json({msg:"No autorizado 2 " + err})
+            return res.status(403).json({msg:"No autorizado 2 " + err})
         }
 
         if(payload.expiredAt <= moment().unix()) {
-            return res.status(401).json({msg:"Sesion expirada"})
+            return res.status(403).json({msg:"Sesion expirada"})
         }
 
         console.log('Token validado correctamente!');
@@ -48,7 +48,7 @@ const policy = [
             req.isAdmin = true;
             next();
         } else {
-            return res.status(401).json({msg:"No autorizado, tenes que ser admin"})
+            return res.status(403).json({msg:"No autorizado, tenes que ser admin"})
         }
     }
 ];
