@@ -237,9 +237,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/user/",
+							"raw": "ljragusa.us:3000/user/",
 							"host": [
-								"localhost"
+								"ljragusa",
+								"us"
 							],
 							"port": "3000",
 							"path": [
@@ -716,9 +717,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/game",
+							"raw": "ljragusa.us:3000/game",
 							"host": [
-								"localhost"
+								"ljragusa",
+								"us"
 							],
 							"port": "3000",
 							"path": [
@@ -1003,7 +1005,7 @@
 				"type": "text/javascript",
 				"exec": [
 					"const postRequest = {",
-					"  url: 'localhost:3000/user/login',",
+					"  url: 'ljragusa.us:3000/user/login',",
 					"  method: 'POST',",
 					"  timeout: 0,",
 					"  header: {",
