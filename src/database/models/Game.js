@@ -33,6 +33,29 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    trailer: {
+      type: DataTypes.STRING(300),
+      allowNull: false,
+      validate: {
+        len: {
+          args: [100,300],
+          msg: "El link no es valido"
+        }
+      }
+    },
+    isAvailable: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    date: {
+      type: DataTypes.date,
+      allowNull: false,
+      validate: {
+        isDate: {
+          msg: "La fecha no es valida"
+        }
+      }
+    },
     valoration: {
       type: DataTypes.FLOAT,
       allowNull: false

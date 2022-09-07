@@ -22,6 +22,17 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
     },
+    reason : {
+        type: DataTypes.STRING(100),
+        allowNull: false,
+        validate: {
+          notNull: {msg:"Motivo requerido"},
+          len: {
+            args: [5,100],
+            msg: "El motivo puede contener hasta 100 caracteres maximo"
+          }
+        }
+    },
     message: {
       type: DataTypes.STRING(500),
       allowNull: false,
