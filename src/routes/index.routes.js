@@ -25,4 +25,7 @@ router.use('/developer', checkToken, apiDeveloperRouter);
 const apiContactRouter = require('./api/contact.routes');
 router.use('/contact', checkToken, apiContactRouter);
 
+const apiDashboardRouter = require('./api/dashboard.routes');
+router.use('/dashboard', checkToken, apiDashboardRouter);
+
 module.exports = router;
