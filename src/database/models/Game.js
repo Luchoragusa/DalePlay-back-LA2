@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     date: {
       type: DataTypes.date,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isDate: {
           msg: "La fecha no es valida"
