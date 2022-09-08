@@ -4,7 +4,7 @@ const moment = require('moment');
 const jwt = require('jwt-simple');
 const { EmailIsUniqueB } = require('../../validators/EmailIsUnique');
 const externalApi = require('../../helpers/externalApi');
-
+const { sendConfirmationEmail } = require('../../helpers/sendEmail');
 
 const getOne = async (req, res) => {
     try {
@@ -123,8 +123,29 @@ const register =  async (req, res) => {
     try{
         req.body.password = bcrypt.hashSync(req.body.password, 10); // tomo la pw que me llega, la encripto y la guardo en el campo password
         const u = await User.create(req.body);
+        sendConfirmationEmail(u);
         if (u) {
             return res.status(200).json({'msg':'Creado correctamente', u})
+        } else {
+            return res.status(404).json({'msg':'No se recibieron los datos'})
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ msg: 'Error en el servidor' });
+    }
+}
+
+const validateToken =  async (req, res) => {
+    try{
+        const token = req.params.token;
+        const email = jwt.decode(token, process.env.HASH_KEY);
+        const u = await User.findOne({ where: { email: email } });
+        if (u) {
+            u.update({
+                confirmed: true
+            }).then(u => {
+                return res.status(200).json({'msg':'Verificado!'})
+            })
         } else {
             return res.status(404).json({'msg':'No se recibieron los datos'})
         }
@@ -141,11 +162,16 @@ const login = async (req, res) => {
         if(u){
             // El mail esra en la db
             if(bcrypt.compareSync(req.body.password, u.password)){
-                // Creo el token
-                let token = createToken(u);
-                // Guardo el token en la cookie
-                res.cookie('jwt', token, { httpOnly: true, secure: true });
-                return res.status(200).json({token})
+                // Valido si verifico el mail
+                if (u.confirmed){
+                    // Creo el token
+                    let token = createToken(u);
+                    // Guardo el token en la cookie
+                    res.cookie('jwt', token, { httpOnly: true, secure: true });
+                    return res.status(200).json({token})
+                }else{
+                    return res.status(404).json({msg:"No verifico el mail"})
+                }
             } else {
                 return res.status(404).json({'msg':'Email y/o contraseña incorrectos'})
             }
@@ -183,6 +209,7 @@ module.exports = {
     register,
     update,
     login,
-    deleteOne
+    deleteOne,
+    validateToken
 //    logOut
 };
