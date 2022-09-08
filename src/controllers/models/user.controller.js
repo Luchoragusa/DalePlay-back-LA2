@@ -1,4 +1,4 @@
-const { User, Role } = require('../../database/models/index');
+const { User, Role, Usergame } = require('../../database/models/index');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const jwt = require('jwt-simple');
@@ -98,6 +98,26 @@ const update = async (req,res) => {
     }
 };
 
+const deleteOne = async (req, res, next) => {
+        try{
+            const id = req.params.id;
+            const user = await User.findByPk(id);
+            if (!user) {
+                return res.status(404).json({msg:"Elemento no encontrado"})
+            } else {
+                // Encuentro el usuario y borro los juegos que tiene
+                Usergame.destroy({where: {idUser: id}})
+
+                // Borro el usuario
+                user.destroy();
+                return res.status(200).json({msg:"Borrado correctamente"})
+            }
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ msg: 'Error en el servidor' });
+        }
+    }
+
 const register =  async (req, res) => {
     try{
         req.body.password = bcrypt.hashSync(req.body.password, 10); // tomo la pw que me llega, la encripto y la guardo en el campo password
@@ -162,5 +182,6 @@ module.exports = {
     register,
     update,
     login,
+    deleteOne
 //    logOut
 };

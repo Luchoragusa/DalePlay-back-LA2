@@ -107,7 +107,7 @@ const findGamesByUser = async (req,res) => {
                 const games = [];
                 const promises = usergames.map(async (usergame) => {
                     const game = await Game.findOne({
-                        where: { id },
+                        where: { id: usergame.idGame },
                         attributes: { exclude: ['idCategory', 'idDeveloper'] },
                         include: [{model: Category}, {model: Developer}], 
                     });
