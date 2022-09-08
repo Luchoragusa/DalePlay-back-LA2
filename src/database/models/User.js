@@ -5,9 +5,8 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-
-      // Como creo deberia ser
        User.belongsToMany(models.Game, {through: 'Usergame', foreignKey: 'idUser'});
+        User.hasMany(models.Usergame, {foreignKey: 'idUser'});
 
       User.belongsTo(models.Role, {foreignKey: 'idRole'});
     }
