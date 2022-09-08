@@ -30,7 +30,7 @@ http.listen(PORT, () => {
     //     games.forEach(async (game) => Game.create(game))
     // })
 
-    // Primero correr lo de arriba y dsp esto
+// Primero correr lo de arriba y dsp esto
 
     // .then (() => {
     //     usergames.forEach(async (usergame) => Usergame.create(usergame))
