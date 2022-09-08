@@ -73,7 +73,22 @@ const validateGame = [
         .withMessage('Debe contener una descripcion')
         .isLength({min:10, max:500})
         .withMessage('No es una descripcion valida'),
-
+    check('trailer')
+        .exists()
+        .withMessage('Debe contener un trailer')
+        .isLength({min:100, max:300})
+        .withMessage('El link no es valido'),
+    check('isAvailable')
+        .exists()
+        .withMessage('Debe contener un estado de disponibilidad')
+        .isBoolean()
+        .withMessage('No es un estado valido'),
+    check('date')
+        .exists()
+        .withMessage('Debe contener una fecha')
+        .isDate()
+        .withMessage('La fecha no es valida'),
+        
     // Validar que la categoria exista
     async (req, res, next) => {
         const category = await Category.findByPk(req.body.idCategory)
