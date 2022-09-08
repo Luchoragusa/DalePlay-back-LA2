@@ -85,7 +85,8 @@ const update = async (req,res) => {
                 name: params.name || u.name,
                 surname: params.surname || u.surname,
                 idRole: params.idRole || u.idRole,
-                email: email
+                email: email,
+                seed: params.seed || u.seed,
             }).then(u => {
             res.status(201).json({u, 'msg':'Editado correctamente'})
             })
