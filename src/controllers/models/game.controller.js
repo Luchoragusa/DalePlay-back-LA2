@@ -4,7 +4,7 @@ const getOne = async (req,res) => {
     try {
         const { id } = req.params;
         console.log(id);
-        let game = await Game.findOne({
+        const game = await Game.findOne({
             where: { id },
             attributes: { exclude: ['idCategory', 'idDeveloper'] },
             include: [{model: Category}, {model: Developer}], 
@@ -44,7 +44,11 @@ const findGamesByCategory = async (req,res) => {
         const id = req.params.id
         if(await Category.findByPk(id)) {
             // La categoria existe en la DB
-            let games = await Game.findAll({ where: { idCategory: id } });
+            const games = await Game.findAll({ 
+                where: { idCategory: id },
+                attributes: { exclude: ['idCategory', 'idDeveloper'] },
+                include: [{model: Category}, {model: Developer}],
+            });
             // Si obtengo un array vacio, es porque no hay juegos de esa categoria
             if (games.length > 0) { 
                 return res.status(200).json({games, 'msg':'Encontrados correctamente'})
@@ -67,7 +71,11 @@ const findGamesByDeveloper = async (req,res) => {
         const id = req.params.id
         if(await Developer.findByPk(id)) {
             // El developer existe en la DB
-            let games = await Game.findAll({ where: { idDeveloper: id } });
+            const games = await Game.findAll({ 
+                where: { idDeveloper: id },
+                attributes: { exclude: ['idCategory', 'idDeveloper'] },
+                include: [{model: Category}, {model: Developer}],
+            });
             // Si obtengo un array vacio, es porque no hay juegos de ese developer
             if (games.length > 0) { 
                 return res.status(200).json({games, 'msg':'Encontrados correctamente'})
@@ -90,13 +98,19 @@ const findGamesByUser = async (req,res) => {
         const id = req.params.id
         if(await User.findByPk(id)) {
             // El usuario existe en la DB
-            let usergames = await Usergame.findAll({ where: { idUser: id } });
+            const usergames = await Usergame.findAll({ 
+                where: { idUser: id }
+            });
             // Si obtengo un array vacio, es porque no hay juegos comprados por ese usuario
             if (usergames.length > 0) { 
                 // Tengo un array de objetos con los juegos comprados por el usuario
                 const games = [];
                 const promises = usergames.map(async (usergame) => {
-                    const game = await Game.findByPk(usergame.idGame);
+                    const game = await Game.findOne({
+                        where: { id },
+                        attributes: { exclude: ['idCategory', 'idDeveloper'] },
+                        include: [{model: Category}, {model: Developer}], 
+                    });
                     games.push(game);
                 });
                 // Espero a que se resuelvan todas las promesas
