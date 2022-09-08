@@ -11,7 +11,8 @@ const getOne = async (req, res) => {
         const { id } = req.params;
         const user = await User.findOne({
             where: { id },
-            attributes: { exclude: ['password'] }
+            attributes: { exclude: ['password', 'idRole'] },
+            include: [{model: Role}]
         });
         if (!user) {
             return res.status(404).json({ msg: 'Usuario no encontrado' });
@@ -24,9 +25,6 @@ const getOne = async (req, res) => {
             let u = user.dataValues;
             u.image = url;
 
-            // Le agrego el nombre del rol al modelo de usuario
-            u.roleName = await getRoleName(u.idRole);
-
             return res.status(200).json(u);
         }
     } catch (error) {
@@ -38,7 +36,8 @@ const getOne = async (req, res) => {
 const getAll = async (req, res) => {
     try {
         const users = await User.findAll({
-            attributes: { exclude: ['password'] }
+            attributes: { exclude: ['password', 'idRole'] },
+            include: [{model: Role}]
         });
         if (!users) {
             return res.status(404).json({ msg: 'Usuarios no encontrados' });
@@ -50,9 +49,6 @@ const getAll = async (req, res) => {
 
                 // Devuelvo todos los datos y la url de la imagen
                 user.dataValues.image = url;
-
-                // Le agrego el nombre del rol al modelo de usuario
-                user.dataValues.roleName = await getRoleName(user.idRole);
 
                 usersArray.push(user);
             });
@@ -159,17 +155,6 @@ const createToken = (u) => {
     }
     return jwt.encode(payload, process.env.HASH_KEY) // poner una frease secreta en el .env
 }
-
-const getRoleName = async (idrole) => {
-    try {
-        const role = await Role.findByPk(idrole);
-        return role.name;
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
-
 
 module.exports = {
     getOne,

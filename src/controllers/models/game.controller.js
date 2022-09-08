@@ -4,15 +4,15 @@ const getOne = async (req,res) => {
     try {
         const { id } = req.params;
         console.log(id);
-        let game = await Game.findByPk(id)
+        let game = await Game.findOne({
+            where: { id },
+            attributes: { exclude: ['idCategory', 'idDeveloper'] },
+            include: [{model: Category}, {model: Developer}], 
+        });
         if (!game) {
             return res.status(404).json({ msg: 'Juego no encontrado' });
         } else {
             // Econtro el juego en la db
-            // Obtengo el nombre del developer y de la categoria
-            game.dataValues.nameCategory = await getCatName(game.idCategory);
-            game.dataValues.nameDeveloper = await getDevName(game.idDeveloper);
-
             return res.status(200).json(game);
         }
     } catch (error) {
@@ -23,22 +23,15 @@ const getOne = async (req,res) => {
 
 const getAll = async (req, res) => {
     try {
-        const games = await Game.findAll();
+        const games = await Game.findAll({
+            attributes: { exclude: ['idCategory', 'idDeveloper'] },
+            include: [{model: Category}, {model: Developer}], 
+        });
         if (!games) {
             return res.status(404).json({ msg: 'Juegos no encontrados' });
         } else {
-            const gamesArray = [];
-            const promises = games.map(async (game) => {
-                
-                // Obtengo el nombre del developer y de la categoria
-                game.dataValues.nameCategory = await getCatName(game.idCategory);
-                game.dataValues.nameDeveloper = await getDevName(game.idDeveloper);
-
-                gamesArray.push(game);
-            });
-            // Espero a que se resuelvan todas las promesas
-            await Promise.all(promises);
-            return await res.status(200).json(gamesArray);
+            // Devuelvo todos los datos
+            return await res.status(200).json(games);
         }
     } catch (error) {
         console.log(error);
@@ -123,24 +116,6 @@ const findGamesByUser = async (req,res) => {
         res.status(500).json({ msg: 'Error en el servidor' });
     }
 };
-
-const getDevName = async (idDeveloper) => {
-    try{
-        const developer = await Developer.findByPk(idDeveloper);
-        return developer.name;
-    } catch (error) {
-        console.log(error);
-    }
-} 
-        
-const getCatName = async (idCategory) => {
-    try{
-        const category = await Category.findByPk(idCategory);
-        return category.name;
-    } catch (error) {
-        console.log(error);
-    }
-} 
 
 module.exports = {
     findGamesByCategory,
