@@ -185,7 +185,7 @@ const sendConfirmationEmail = async (user) => {
                       <!-- start copy -->
                       <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                          <p style="margin: 0;">Para confirmar tu cuenta, haz click en el siguiente boton. En caso que no haberse registrado proceda en nuestra pagina proceda a contactarnos para tomar acciones.</p>
+                          <p style="margin: 0;">Para confirmar tu cuenta, haz click en el siguiente boton. En caso que no haberte registrado en nuestra pagina procede a contactarnos para tomar acciones.</p>
                         </td>
                       </tr>
                       <!-- end copy -->
@@ -279,7 +279,7 @@ const sendPurchasenEmail = async (user, game) => {
                 address: process.env.EMAIL
             },
             to: user.email,
-            subject: 'Felicitacion por adquirir un juego!',
+            subject: 'Felicitaciones por adquirir un juego!',
             html: `
                 <html>
                 <head>
