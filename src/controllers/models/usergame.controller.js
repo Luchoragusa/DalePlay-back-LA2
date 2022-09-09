@@ -1,4 +1,5 @@
 const { Usergame, Game, User } = require('../../database/models/index');
+const { sendPurchasenEmail } = require('../../helpers/sendEmail');
 
 const create = async (req, res) => {
     try{
@@ -8,6 +9,9 @@ const create = async (req, res) => {
 
         const ug = await Usergame.create({idGame, idUser});
         if (ug) {
+            const game = await Game.findByPk(idGame);
+            const user = await User.findByPk(idUser);
+            sendPurchasenEmail(user, game);
             res.status(200).json({ msg: 'Compra realizada con exito' });
         } else {
             res.status(404).json({ msg: 'No se pudo realizar la compra' });

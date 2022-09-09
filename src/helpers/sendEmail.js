@@ -35,6 +35,37 @@ const sendConfirmationEmail = async (user) => {
     }
 }
 
+const sendPurchasenEmail = async (user, game) => {
+    try{
+
+        let transporter = await nodemailer.createTransport({
+            service: 'gmail',
+            secure: false,
+            auth: {
+                user: process.env.EMAIL_USERNAME,
+                pass: process.env.EMAIL_PASSWORD
+            }
+        });
+
+        await transporter.sendMail({
+            from: {
+                name: 'Dale play',
+                address: process.env.EMAIL
+            },
+            to: user.email,
+            subject: 'Felicitacion por adquirir un juego!',
+            html: `
+                <h1>¡Felicitacion por adquirir <span style="color: #1e90ff;">${game.name}</span>!</h1>
+                <img src="${game.image}" width="300" height="300">
+            `
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
-    sendConfirmationEmail
+    sendConfirmationEmail,
+    sendPurchasenEmail
 };
