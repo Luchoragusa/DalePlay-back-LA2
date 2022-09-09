@@ -281,7 +281,6 @@ const sendPurchasenEmail = async (user, game) => {
             to: user.email,
             subject: 'Felicitacion por adquirir un juego!',
             html: `
-                html: 
                 <html>
                 <head>
                 
