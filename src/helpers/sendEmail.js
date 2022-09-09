@@ -4,7 +4,7 @@ const jwt = require('jwt-simple');
 const sendConfirmationEmail = async (user) => {
     try{
 
-        let transporter = nodemailer.createTransport({
+        let transporter = await nodemailer.createTransport({
             service: 'gmail',
             secure: false,
             auth: {
@@ -16,10 +16,11 @@ const sendConfirmationEmail = async (user) => {
         var token = jwt.encode(user.email, process.env.HASH_KEY);
         const url = `${process.env.URL}/users/confirm/${token}`;
 
-        console.log("aca tamooo!");
-
-        let mailOptions = {
-            from: 'Dale Play <',
+        await transporter.sendMail({
+            from: {
+                name: 'Dale play',
+                address: process.env.EMAIL
+            },
             to: user.email,
             subject: 'Confirmación de cuenta',
             html: `
@@ -27,9 +28,8 @@ const sendConfirmationEmail = async (user) => {
                 <p>Para confirmar tu cuenta, haz click en el siguiente enlace:</p>
                 <a href="${url}">Confirmar cuenta</a>
             `
-        };
+        });
 
-        await transporter.sendMail(mailOptions);
     } catch (error) {
         console.log(error);
     }
