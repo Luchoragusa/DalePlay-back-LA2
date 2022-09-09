@@ -54,6 +54,7 @@ const getAll = async (req, res) => {
             });
             // Espero a que se resuelvan todas las promesas
             await Promise.all(promises);
+            usersArray.sort((a, b) => a.id - b.id);
             return await res.status(200).json(usersArray);
         }
     } catch (error) {

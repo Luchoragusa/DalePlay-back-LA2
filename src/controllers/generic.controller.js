@@ -3,6 +3,7 @@ exports.getAll = Model =>
         try{
             let elemts = await Model.findAll()
             if (elemts.length > 0) {
+                elemts.sort((a, b) => a.id - b.id);
                 return res.status(200).json({elemts, 'msg':'Encontrados correctamente'})
             } else {
                 return res.status(404).json({'msg':'No hay datos'})
