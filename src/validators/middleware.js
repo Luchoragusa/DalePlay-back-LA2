@@ -37,6 +37,27 @@ const checkToken = [
     }
 ];
 
+const checkVerification = [ 
+    async (req, res, next) => { 
+        try{
+            const email =  req.body.email;
+            const u = await User.findOne({ where: { email: email } });
+            if (u) {
+                if (u.confirmed){
+                    next();
+                } else {
+                    return res.status(404).json({msg:"No verificaste tu cuenta"})
+                }
+            } else {
+                return res.status(404).json({msg:"No hay nadie registrado con ese email"})
+            }
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ msg: 'Error en el servidor' });
+        }
+    }
+];
+
 const policy = [ 
     async (req, res, next) => { // esta funcion es para los roles de los usuarios, esto se analiza antes de hacer algo 
         // Traigo el rol de Admin
@@ -55,5 +76,6 @@ const policy = [
 
 module.exports = {
     checkToken,
-    policy
+    policy,
+    checkVerification
 }
