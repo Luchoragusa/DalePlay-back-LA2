@@ -31,6 +31,7 @@ const getAll = async (req, res) => {
             return res.status(404).json({ msg: 'Juegos no encontrados' });
         } else {
             // Devuelvo todos los datos
+            games.sort((a, b) => a.id - b.id);
             return await res.status(200).json(games);
         }
     } catch (error) {
