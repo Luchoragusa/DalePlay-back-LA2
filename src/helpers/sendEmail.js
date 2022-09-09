@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer');
 const jwt = require('jwt-simple');
 
+const logo = 'https://cdn.discordapp.com/attachments/852889034723426324/1017860857302102076/Logo2.png';
+const urlTienda = ''
 const sendConfirmationEmail = async (user) => {
     try{
 
@@ -133,8 +135,8 @@ const sendConfirmationEmail = async (user) => {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                       <tr>
                         <td align="center" valign="top" style="padding: 36px 24px;">
-                          <a href="http://www.ljragusa.us:3000" target="_blank" style="display: inline-block;">
-                            <img src="https://cdn.discordapp.com/attachments/852889034723426324/1017639451595382824/logo.png" alt="Logo" border="0" width="100" style="display: block; width: 100px; max-width: 150px; min-width: 150px;">
+                          <a href="${urlTienda}" target="_blank" style="display: inline-block;">
+                            <img src="${logo}" alt="Logo" border="0" width="100" style="display: block; width: 100px; max-width: 150px; min-width: 150px;">
                           </a>
                         </td>
                       </tr>
@@ -390,8 +392,8 @@ const sendPurchasenEmail = async (user, game) => {
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                           <tr>
                             <td align="center" valign="top" style="padding: 36px 24px;">
-                              <a href="http://www.ljragusa.us:3000" target="_blank" style="display: inline-block;">
-                                <img src="https://cdn.discordapp.com/attachments/852889034723426324/1017639451595382824/logo.png" alt="Logo" border="0" width="100" style="display: block; width: 100px; max-width: 150px; min-width: 150px;">
+                              <a href="${urlTienda}" target="_blank" style="display: inline-block;">
+                                <img src="${logo}" alt="Logo" border="0" width="100" style="display: block; width: 100px; max-width: 150px; min-width: 150px;">
                               </a>
                             </td>
                           </tr>
