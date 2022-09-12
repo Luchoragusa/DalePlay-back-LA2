@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
         type: DataTypes.STRING(100),
         allowNull: false,
-        unique: true,
+        unique: false,
         validate: {
           notNull: {msg:"Email requerido"},
           isEmail: {msg:"Formato de email invalido"},
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: {msg:"Motivo requerido"},
           len: {
-            args: [5,100],
+            args: [1,100],
             msg: "El motivo puede contener hasta 100 caracteres maximo"
           }
         }
