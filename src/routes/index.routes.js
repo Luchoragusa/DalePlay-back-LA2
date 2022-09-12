@@ -5,7 +5,7 @@ const { checkToken } = require('../validators/middleware');
 // Con el middleware se puede hacer que se ejecute una funcion antes de que se ejecute otra, en este caos reviso que este logeado
 
 const apiGameRouter = require('./api/game.routes');
-router.use('/games', checkToken, apiGameRouter);
+router.use('/games', apiGameRouter);
 
 const apiRoleRouter = require('./api/role.routes');
 router.use('/roles', apiRoleRouter);
