@@ -145,7 +145,7 @@ const validateToken =  async (req, res) => {
             u.update({
                 confirmed: true
             }).then(u => {
-                return res.status(200).json({'msg':'Verificado!'})
+                return res.redirect('http://ljragusa.us:4200/auth/login');
             })
         } else {
             return res.status(404).json({'msg':'No se recibieron los datos'})
